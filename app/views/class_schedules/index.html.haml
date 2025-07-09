@@ -9,8 +9,7 @@
 
 - content_for(:js_and_css) do
   = vite_client_tag
-  = vite_javascript_tag 'react-bundle.jsx', type: 'text/javascript'
-  = vite_javascript_tag 'schedule-list-bundle.jsx', type: 'text/javascript'
+  = vite_javascript_tag 'ScheduleListClient.jsx', type: 'text/javascript'
 
 = react_component('ScheduleListApp',
   props: { url: ui_class_schedules_path,

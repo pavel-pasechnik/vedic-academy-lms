@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-include ReactOnRailsHelper
-
 describe 'academic_groups/show' do
   GROUP_ELDERS = %w(administrator curator praepostor).freeze
   OPTIONAL_GROUP_ELDERS = GROUP_ELDERS - %w(administrator)

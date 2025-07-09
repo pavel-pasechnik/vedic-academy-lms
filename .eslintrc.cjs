@@ -1,9 +1,10 @@
+const path = require('path');
+
 module.exports = {
   root: true,
   env: {
     browser: true,
     es2024: true,
-    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -23,7 +24,15 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['react', 'react-hooks', 'react-refresh', 'jsx-a11y', 'prettier'],
+  overrides: [
+    {
+      files: ['app/frontend/**/*.{js,jsx}'],
+      rules: {
+        'n/no-unsupported-features/node-builtins': 'off',
+      },
+    },
+  ],
+  plugins: ['react', 'react-hooks', 'react-refresh', 'jsx-a11y', 'prettier', 'import'],
   rules: {
     'no-console': 0,
     'n/no-missing-import': 'off',
@@ -41,7 +50,8 @@ module.exports = {
         ignoreDeclarationSort: true,
       },
     ],
-    'import/no-unresolved': 'off',
+    'import/no-unresolved': ['error', { ignore: ['\\?worker$', '\\?url$', '\\?raw$'] }],
+    'import/no-extraneous-dependencies': ['error', { packageDir: [path.resolve(__dirname)] }],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -58,7 +68,12 @@ module.exports = {
           'builtin',
           'external',
           'internal',
-          ['parent', 'sibling', 'index', 'object', 'type', 'unknown'],
+          'sibling',
+          'parent',
+          'index',
+          'object',
+          'type',
+          'unknown',
         ],
         pathGroups: [
           {
@@ -92,7 +107,11 @@ module.exports = {
       version: 'detect',
     },
     'import/resolver': {
-      node: {
+      alias: {
+        map: [
+          ['@bundles', path.resolve(__dirname, 'app/frontend/bundles')],
+          ['@lib', path.resolve(__dirname, 'app/frontend/lib')],
+        ],
         extensions: ['.js', '.jsx'],
       },
     },

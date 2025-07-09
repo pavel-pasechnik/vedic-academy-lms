@@ -5,8 +5,8 @@
       = vite_javascript_tag 'generated/group-performance-bundle', type: 'text/javascript'
       = stylesheet_link_tag 'range-slider', media: 'all'
 
-    = react_component('GroupPerformanceApp', props: { people: people,
+    #GroupPerformanceAppClient{ props: { people: people,
                                                       canManage: policy(ExaminationResult).ui_manage?,
                                                       examinations: examinations,
                                                       localization: examination_reults_localization,
-                                                      examinationResults: examination_results })
+                                                      examinationResults: examination_results }}

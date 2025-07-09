@@ -1,16 +1,20 @@
 {
-  "name": "VedicCRM Dev Container",
+  "name": "VedicLMS Dev Container",
   // Specify the relative path to your docker-compose.yml
-  "dockerComposeFile": [
-    "../docker-compose.yml"
-  ],
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "mounts": ["source=vscode-extensions,target=/root/.vscode-server/extensions,type=volume",
+  "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"],
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
   // The service for which the container is created (the name matches the service in docker-compose.yml)
   "service": "web",
-  // A folder inside the container that VS Code will open as "workspace"
+  // A folder inside the container that VS Code will open as \"workspace\"
   "workspaceFolder": "/app",
   // Pass the necessary environment variables to the container (optional)
   "remoteEnv": {
-    "GIT_PATH": "/.git"
+    "GIT_PATH": "/.git",
+    "DOCKER_HOST": "unix:///var/run/docker.sock"
   },
   // List of VS Code extensions that will be immediately installed in the container
   "customizations": {
@@ -21,8 +25,6 @@
         "christian-kohler.npm-intellisense",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "github.copilot",
-        "github.copilot-chat",
         "ionutvmi.path-autocomplete",
         "kamikillerto.vscode-colorize",
         "karunamurti.haml",
@@ -37,7 +39,10 @@
         "shopify.ruby-lsp",
         "stylelint.vscode-stylelint",
         "waderyan.gitblame",
-        "zignd.html-css-class-completion"
+        "zignd.html-css-class-completion",
+        "github.vscode-github-actions",
+        "xyz.local-history",
+        "wilfison.haml-all"
       ]
     }
   }

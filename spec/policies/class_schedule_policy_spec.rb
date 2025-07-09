@@ -4,8 +4,9 @@ require 'pundit/rspec'
 describe ClassSchedulePolicy do
   subject { ClassSchedulePolicy }
 
-  Given(:user)   { create(:person) }
-  Given(:record) { create(:class_schedule) }
+  Given(:user) { create(:person) }
+  Given(:teacher_profile) { create(:teacher_profile) }
+  Given(:record) { create(:class_schedule, teacher_profile: teacher_profile) }
 
   context 'given user\'s role activities' do
     %i(index? show? new? edit? create? update? destroy?).each do |action|
@@ -28,7 +29,6 @@ describe ClassSchedulePolicy do
 
     context 'with group' do
       Given(:group) { create :academic_group }
-
       Given { user.create_student_profile.academic_groups << group }
 
       context 'active' do
@@ -37,7 +37,6 @@ describe ClassSchedulePolicy do
 
       context 'inactive' do
         Given { user.student_profile.group_participations.first.leave! }
-
         Then  { is_expected.not_to permit(user, record) }
       end
     end

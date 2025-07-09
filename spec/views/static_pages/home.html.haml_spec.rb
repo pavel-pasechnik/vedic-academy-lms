@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-include ReactOnRailsHelper
-
 describe 'static_pages/home' do
   Given(:new_study_application) { StudyApplication.new(person_id: user.id) }
   Given(:ag_name) { 'ТВ99-1' }
@@ -13,7 +11,7 @@ describe 'static_pages/home' do
   Given { assign(:certificates, []) }
   Given { assign(:new_study_application, new_study_application) }
   Given { allow(view).to receive(:current_person).and_return(user) }
-  before do 
+  before do
     allow(view).to receive(:policy).with(ClassSchedule).and_return(ClassSchedulePolicy.new(user, ClassSchedule))
   end
 

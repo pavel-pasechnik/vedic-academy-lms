@@ -32,6 +32,19 @@
     ".vscode/**"
   ],
   "local-history.treeLocation": "explorer",
+  "eslint.workingDirectories": ["./app/frontend"],
+  "eslint.validate": ["javascript", "javascriptreact", "jsx"],
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true,
+    "**/tmp/**": true
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/tmp": true,
+    "**/coverage": true
+  },
+  "rubyLsp.bundleGemfile": "../Gemfile",
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,

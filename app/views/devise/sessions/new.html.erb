@@ -1,8 +1,7 @@
 <% provide(:title, t('devise.links.sign_in')) %>
 <% content_for(:js_and_css) do %>
 <%= vite_client_tag %>
-<%= vite_javascript_tag 'react-bundle.jsx', type: 'text/javascript', defer: true %>
-<%= vite_javascript_tag 'schedule-list-bundle.jsx', type: 'text/javascript', defer: true %>
+<%= vite_javascript_tag 'ScheduleListClient.jsx', type: 'text/javascript', defer: true %>
 <% end %>
 
 <div class="row vert-offset-top-4">

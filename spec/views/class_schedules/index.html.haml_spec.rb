@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-include ReactOnRailsHelper
-
 describe 'class_schedules/index' do
   Given(:page) { Capybara::Node::Simple.new(response.body) }
   Given(:user) { create :person, roles: [create(:role, activities: activities)] }

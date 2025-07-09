@@ -1,0 +1,60 @@
+---
+openapi: 3.0.1
+info:
+  title: Vedic Academy LMS API
+  version: v1
+  description: API для системы управления обучением Ведической Академии
+components:
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+- Bearer: []
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: api.yourdomain.com
+- url: http://localhost:3000
+  description: Local development server
+paths:
+  "/api/v1/people":
+    get:
+      summary: Get a list of people
+      tags:
+      - People
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+  "/study_applications":
+    post:
+      summary: Создать заявку на обучение (однократное создание)
+      tags:
+      - Study Applications
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '200':
+          description: Application successfully created
+        '401':
+          description: Unauthorized request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                person_id:
+                  type: integer
+                program_id:
+                  type: integer
+              required:
+              - person_id
+              - program_id

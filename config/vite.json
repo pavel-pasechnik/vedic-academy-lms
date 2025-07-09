@@ -1,13 +1,16 @@
 {
   "all": {
-    "sourceCodeDir": "app/frontend",
+    "sourceCodeDir": "app/frontend/entrypoints",
     "watchAdditionalPaths": [],
     "additionalEntrypoints": [
-      "entrypoints/application.jsx",
       "entrypoints/application.scss",
-      "entrypoints/react-bundle.jsx",
-      "entrypoints/schedule-list-bundle.jsx"
+      "entrypoints/application.js",
+      "entrypoints/advanced-search-client.jsx",
+      "entrypoints/group-attendance-app-client.jsx",
+      "entrypoints/group-performance-app-client.jsx",
+      "entrypoints/ScheduleListClient.jsx"
     ]
+
   },
   "development": {
     "autoBuild": true,

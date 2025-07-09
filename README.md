@@ -1,19 +1,22 @@
 # Vedic CRM
 
-Vedic CRM is a full-featured CRM system built on a modern technology stack with a monolithic architecture of Ruby on Rails, React, and Vite.
+Vedic CRM is a full-featured CRM system built on a modern technology stack with a monolithic
+architecture of Ruby on Rails, React, and Vite.
 
 ---
 
 ## 📊 Badges Summary
 
-[![CI](https://github.com/pavel-pasechnik/vedic-crm/actions/workflows/ci.yml/badge.svg?branch=main&style=flat-square)](https://github.com/pavel-pasechnik/vedic-crm/actions)
-[![Coverage Status](https://coveralls.io/repos/github/pavel-pasechnik/vedic-crm/badge.svg?branch=main&style=flat-square)](https://coveralls.io/github/pavel-pasechnik/vedic-crm)
-[![Security Audit](https://img.shields.io/badge/Security-Audit-green?style=flat-square)](https://github.com/pavel-pasechnik/vedic-crm/actions/workflows/ci.yml)
-[![Lint Status](https://img.shields.io/badge/Lint-Pass-brightgreen?style=flat-square)](https://github.com/pavel-pasechnik/vedic-crm/actions/workflows/ci.yml)
-[![RubyCritic](https://img.shields.io/badge/RubyCritic-Enabled-blueviolet?style=flat-square)](https://github.com/pavel-pasechnik/vedic-crm/actions/workflows/ci.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ab46818dc16b1f934d2c/maintainability?style=flat-square)](https://codeclimate.com/github/pavel-pasechnik/vedic-crm/maintainability)
-[![Last Commit](https://img.shields.io/github/last-commit/pavel-pasechnik/vedic-crm?style=flat-square)](https://github.com/pavel-pasechnik/vedic-crm/commits)
-[![Snyk](https://img.shields.io/snyk/vulnerabilities/github/pavel-pasechnik/vedic-crm?style=flat-square)](https://snyk.io/test/github/pavel-pasechnik/vedic-crm)
+[![CI](https://github.com/pavel-pasechnik/vedic-academy-lms/actions/workflows/ci.yml/badge.svg?branch=main&style=flat-square)](https://github.com/pavel-pasechnik/vedic-academy-lms/actions)
+[![Coverage Status](https://coveralls.io/repos/github/pavel-pasechnik/vedic-academy-lms/badge.svg?branch=main&style=flat-square)](https://coveralls.io/github/pavel-pasechnik/vedic-academy-lms)
+[![Security Audit](https://img.shields.io/badge/Security-Audit-green?style=flat-square)](https://github.com/pavel-pasechnik/vedic-academy-lms/actions/workflows/ci.yml)
+[![Lint Status](https://img.shields.io/badge/Lint-Pass-brightgreen?style=flat-square)](https://github.com/pavel-pasechnik/vedic-academy-lms/actions/workflows/ci.yml)
+[![RubyCritic](https://img.shields.io/badge/RubyCritic-Enabled-blueviolet?style=flat-square)](https://github.com/pavel-pasechnik/vedic-academy-lms/actions/workflows/ci.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a9da662c7ee38b8380ff/maintainability?style=flat-square)](https://codeclimate.com/github/pavel-pasechnik/vedic-academy-lms/maintainability)
+[![Last Commit](https://img.shields.io/github/last-commit/pavel-pasechnik/vedic-academy-lms?style=flat-square)](https://github.com/pavel-pasechnik/vedic-academy-lms/commits)
+[![Snyk](https://img.shields.io/snyk/vulnerabilities/github/pavel-pasechnik/vedic-academy-lms?style=flat-square)](https://snyk.io/test/github/pavel-pasechnik/vedic-academy-lms)
+
+![Metrics](https://github.com/pavel-pasechnik/vedic-academy-lms/blob/main/metrics.svg)
 
 ---
 
@@ -72,29 +75,30 @@ Vedic CRM is a full-featured CRM system built on a modern technology stack with 
 ### Project Cloning
 
 ```bash
-git clone https://github.com/pavel-pasechnik/vedic-crm.git
-cd vedic-crm
+git clone https://github.com/pavel-pasechnik/vedic-academy-lms.git
+cd vedic-academy-lms
 ```
+
+> Ensure your Docker Desktop supports BuildKit and Buildx (Docker Desktop 4.12+ recommended).
 
 ### Building Docker Containers
 
+#### Full optimized build with bake
+
 ```bash
-docker-compose build
-docker-compose up
+docker buildx bake
 ```
 
-### Dependency Installation
-
-#### Ruby
+#### Launching the application
 
 ```bash
-bundle install
+docker compose up -d
 ```
 
-#### Node.js
+#### Stopping and cleaning up
 
 ```bash
-npm install
+docker compose down --volumes
 ```
 
 ### Configuration
@@ -123,15 +127,22 @@ bin/rails db:create db:migrate db:seed
 Running a full set of tests:
 
 ```bash
-bin/rails test
-bin/rails test:system
+bundle exec rspec
 ```
+
+This command will automatically:
+
+- Start the Vite Dev Server for system tests
+- Run all RSpec unit, integration, and system tests
+- Collect coverage reports via SimpleCov
+
+Make sure Docker containers are running and database is initialized before running tests.
 
 ---
 
 ## 🚀 Deployment
 
-The project is deployed via Docker containers. Deployment via CI/CD is recommended.
+The project is deployed via Docker containers.
 
 ---
 

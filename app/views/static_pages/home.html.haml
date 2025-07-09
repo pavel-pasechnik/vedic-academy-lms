@@ -44,13 +44,12 @@
     .col-xs-12
       - content_for(:js_and_css) do
         = vite_client_tag
-        = vite_javascript_tag 'react-bundle.jsx', type: 'text/javascript'
-        = vite_javascript_tag 'schedule-list-bundle.jsx', type: 'text/javascript'
+        = vite_javascript_tag 'ScheduleListClient.jsx', type: 'text/javascript'
 
-      = react_component('ScheduleListApp',
+      #ScheduleListAppClient{
         props: { url: ui_person_class_schedules_path,
           headers: class_schedules_table_headers,
-          noSchedules: t('academic_groups.show.no_pending_schedules') })
+          noSchedules: t('academic_groups.show.no_pending_schedules') }}
 
   .col-xs-12.vert-offset-top-1
     %h3.text-center

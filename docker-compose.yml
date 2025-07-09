@@ -1,63 +1,37 @@
 services:
   db:
-    container_name: db
     restart: unless-stopped
-    build:
-      context: docker
-      dockerfile: postgres_ua/Dockerfile
+    image: vedic_academy_db:latest
+    platform: linux/amd64
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
       - db_data:/var/lib/postgresql/data
-    command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
     ports:
-      - "5432:5432"
+      - '5432:5432'
 
   redis:
-    container_name: redis
     image: redis:8.0.2-alpine
-    command: ['redis-server', '--appendonly', 'yes']
-    entrypoint:
-       - sh
-       - -lc
-       - |
-         chown -R redis:redis /data
-         exec redis-server --appendonly yes
+    platform: linux/amd64
+    command: sh -lc "chown -R redis:redis /data && exec redis-server --appendonly yes"
     ports:
       - '6379:6379'
     volumes:
       - redis_data:/data
 
   web:
-    container_name: web
-    image: vedic_crm:dev
-    build:
-      context: .
-      dockerfile: docker/akadem_students/Dockerfile
-      target: development
-    command: |
-      bash -lc "
-        # Waiting for Postgres and Redis to step up
-        until nc -z db 5432; do echo 'Waiting for Postgres...'; sleep 1; done
-        until nc -z redis 6379; do echo 'Waiting for Redis...'; sleep 1; done
-
-        # Create/migrate base
-        bundle exec rails db:create db:migrate
-
-        # Running Vite Dev Server on 0.0.0.0.0:3036.
-        # --host 0.0.0.0 makes the server available from the container
-        bin/vite dev --host 0.0.0.0
-
-        # And then we launch Puma right away
-        bundle exec puma -C config/puma.rb
-      "
+    image: vedic_academy_lms:latest
+    platform: linux/amd64
     volumes:
       - .:/app
+      - /var/run/docker.sock:/var/run/docker.sock
     working_dir: /app
     ports:
-      - "3000:3000"    # Rails
-      - "3036:3036"    # Vite Dev Server
+      - '3000:3000' # Rails
+      - '3036:3036' # Vite Dev Server
+      - '3037:3037' # Vite test
     environment:
       RAILS_ENV: development
       DATABASE_HOST: db
@@ -71,3 +45,4 @@ services:
 volumes:
   db_data:
   redis_data:
+  docker_sock:

@@ -9,25 +9,14 @@
 
     = csrf_meta_tags
 
-    - if Rails.env.production?
+    - if Rails.env.development?
       = vite_client_tag
-      = vite_javascript_tag 'sentry-raven', type: 'text/javascript', async: true
-
-      %script{ src: 'https://www.googletagmanager.com/gtag/js?id=UA-108797911-1', async: true, type: 'text/javascript' }
-
-      :javascript
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-108797911-1');
 
     %title
       = full_title(yield(:title))
 
-
     = vite_stylesheet_tag 'application.scss'
-
-    = vite_javascript_tag 'application.jsx'
+    = vite_javascript_tag 'application'
 
     - if content_for?(:js_and_css)
       = yield(:js_and_css)

@@ -63,6 +63,9 @@ gem 'stackprof'
 
 gem 'simple_form'
 
+# Technical documentation of the project
+gem 'rswag'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri windows ], require: 'debug/prelude'
@@ -109,6 +112,12 @@ group :test do
 
   gem 'coveralls', require: false
   gem 'simplecov', require: false
+
+  gem 'fuubar'
+  gem 'rspec-given'
+  gem 'shoulda-matchers'
+
+  gem 'kaminari'
 end
 
 gem 'haml_lint', '~> 0.62.0', group: :development

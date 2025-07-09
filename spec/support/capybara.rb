@@ -1,4 +1,3 @@
-require 'capybara/poltergeist'
 require 'capybara/rspec'
 require 'capybara/rails'
 

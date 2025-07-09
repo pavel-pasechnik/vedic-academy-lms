@@ -49,3 +49,10 @@
 # Ignore Docker-related files
 /.dockerignore
 /Dockerfile*
+
+coverage
+.vscode
+.idea
+test
+public/packs
+public/assets

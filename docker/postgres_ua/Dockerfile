@@ -1,7 +1,5 @@
 FROM postgres:17.5-alpine3.22
 
-LABEL maintainer="Maksym Pugach <pugach.m@gmail.com>"
-
 RUN apk add --no-cache libc6-compat
 ENV LANG=uk_UA.UTF-8
 
