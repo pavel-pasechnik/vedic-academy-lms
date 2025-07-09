@@ -6,6 +6,7 @@ on:
 
 jobs:
   github-metrics:
+    if: github.actor != 'coveralls' && github.event.head_commit.message != 'coverage data'
     runs-on: ubuntu-latest
     steps:
       - uses: lowlighter/metrics@latest
