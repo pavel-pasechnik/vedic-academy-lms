@@ -3,6 +3,8 @@ name: GitHub Metrics
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'coverage/**'
 
 jobs:
   github-metrics:
