@@ -70,6 +70,19 @@ architecture of Ruby on Rails, React, and Vite.
 
 ---
 
+## 🔑 SSH Access for Git
+
+> **Important:** To enable `git push` or other GitHub SSH operations inside the container, make
+> sure:
+>
+> - Your host machine has a valid SSH key in `~/.ssh/id_rsa` or `id_ed25519`.
+> - The SSH key is [added to your GitHub account](https://github.com/settings/ssh).
+> - The devcontainer is configured to mount the `.ssh` directory (see
+>   `.devcontainer/devcontainer.json`).
+>
+> If you're getting a `Permission denied (publickey)` error, it's likely due to missing or
+> unregistered SSH keys.
+
 ## ⚙ Installation and Configuration
 
 ### Project Cloning
@@ -95,10 +108,10 @@ docker buildx bake
 docker compose up -d
 ```
 
-#### Stopping and cleaning up
+#### Stopping
 
 ```bash
-docker compose down --volumes
+docker compose down
 ```
 
 ### Configuration
