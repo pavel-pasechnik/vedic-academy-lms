@@ -5,6 +5,7 @@ glob: '**/*.erb'
 exclude:
   - '**/vendor/**/*'
   - '**/node_modules/**/*'
+  - '.history/**/*'
 
 linters:
   ErbSafety:

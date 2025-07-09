@@ -8,3 +8,6 @@ linters:
 
   FinalNewline:
     enabled: true
+
+exclude:
+  - '.history/**/*'
