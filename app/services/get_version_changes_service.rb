@@ -6,11 +6,11 @@ class GetVersionChangesService
     next_version_attributes = next_attributes(version)
 
     if prev_version_attributes.empty? || next_version_attributes.empty?
-      [prev_version_attributes, next_version_attributes]
+      [ prev_version_attributes, next_version_attributes ]
     else
       keys = prev_version_attributes.keys.concat(next_version_attributes.keys).uniq
 
-      keys.each_with_object([{}, {}]) do |key, (prev_diff, next_diff)|
+      keys.each_with_object([ {}, {} ]) do |key, (prev_diff, next_diff)|
         prev_value = prev_version_attributes[key]
         next_value = next_version_attributes[key]
 
@@ -19,7 +19,7 @@ class GetVersionChangesService
           next_diff[key] = screened_value(next_value, key)
         end
 
-        [prev_diff, next_diff]
+        [ prev_diff, next_diff ]
       end
     end
   end

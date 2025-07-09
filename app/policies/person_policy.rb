@@ -53,7 +53,7 @@ class PersonPolicy < BasePolicy
   end
 
   def elder_of_student?(field)
-    AcademicGroup.joins(student_profiles: [:person])
+    AcademicGroup.joins(student_profiles: [ :person ])
       .where(field => record.id, :student_profiles => { person_id: user.id })
       .any?
   end

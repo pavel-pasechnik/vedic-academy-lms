@@ -3,7 +3,7 @@
   // Specify the relative path to your docker-compose.yml
   "dockerComposeFile": ["../docker-compose.yml"],
   "mounts": ["source=vscode-extensions,target=/root/.vscode-server/extensions,type=volume",
-  "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"],
+  "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind", "source=${env:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"],
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },

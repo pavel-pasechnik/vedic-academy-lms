@@ -22,7 +22,9 @@ RUN apt-get update -qq && \
   libpq-dev \
   postgresql-client \
   libvips \
-  netcat-openbsd && \
+  netcat-openbsd \
+  openssh-client && \
+  ssh-keyscan github.com >> /etc/ssh/ssh_known_hosts && \
   curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
   apt-get install -y nodejs && \
   rm -rf /var/lib/apt/lists/*

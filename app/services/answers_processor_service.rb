@@ -68,11 +68,11 @@ class AnswersProcessorService
       answers_to_consider[answer.question.data[:key]] += 1 if answer_matched?(answer)
     end
 
-    [answers_by_keys, answers_to_consider]
+    [ answers_by_keys, answers_to_consider ]
   end
 
   def average_result(result, indexes, param)
-    indexes.inject(0) { |a, e| a + result[e][param] } / indexes.size
+    indexes.inject(0) { |acc, elem| acc + result[elem][param] } / indexes.size
   end
 
   def index_result(questionnaire, index_type, max, current)

@@ -37,7 +37,7 @@ module Api
         email: nil,
         birthday: Date.parse('1975/10/11'),
         groups: %w[Викладачі Адміністратори],
-        telephones: ['+380 50 111 22 33']
+        telephones: [ '+380 50 111 22 33' ]
       }
     end
 
@@ -50,7 +50,7 @@ module Api
         email: 'test1@example.com',
         birthday: Date.parse('1985/10/11'),
         groups: %w[Студенти ШБ15-1 УЧ15-2],
-        telephones: ['+380 50 111 22 34', '+380501112235']
+        telephones: [ '+380 50 111 22 34', '+380501112235' ]
       }
     end
 
@@ -63,7 +63,7 @@ module Api
         email: 'test2@example.com',
         birthday: Date.parse('1965/10/11'),
         groups: %w[Студенти ШБ15-1 Старости],
-        telephones: ['+380 50 111 22 36']
+        telephones: [ '+380 50 111 22 36' ]
       }
     end
 
@@ -77,7 +77,7 @@ module Api
           email: nil,
           birthday: Date.parse('1975/10/11'),
           groups: %w[Викладачі Адміністратори],
-          telephones: ['+380 50 111 22 33']
+          telephones: [ '+380 50 111 22 33' ]
         },
         {
           id: 2,
@@ -88,7 +88,7 @@ module Api
           birthday: Date.parse('1985/10/12'),
           groups: %W[\u0421\u0442\u0443\u0434\u0435\u043D\u0442\u0438 \u0428\u041115-1
                      \u0421\u0442\u0430\u0440\u043E\u0441\u0442\u0438],
-          telephones: ['+380 50 111 22 34', '+380 50 111 22 38']
+          telephones: [ '+380 50 111 22 34', '+380 50 111 22 38' ]
         }
       ]
     end
