@@ -1,4 +1,4 @@
-name: GitHub Metrics
+name: Metrics embed
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     if: github.actor != 'coveralls' && github.event.head_commit.message != 'coverage data'
     runs-on: ubuntu-latest
     steps:
-      - uses: lowlighter/metrics@latest
+      - uses: lowlighter/metrics@v3.34
         with:
           filename: metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
