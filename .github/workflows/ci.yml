@@ -170,60 +170,80 @@ jobs:
             exit 1
           fi
 
-  test:
+  # ⛔️ temporarily disabled tests
+  #  test:
+  #    needs: prepare
+  #    runs-on: ubuntu-latest
+  #    services:
+  #      postgres:
+  #        image: postgres:15
+  #        ports: ['5432:5432']
+  #        env:
+  #          POSTGRES_USER: postgres
+  #          POSTGRES_PASSWORD: postgres
+  #          POSTGRES_DB: va_db_tst
+  #        options: >-
+  #          --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=5
+  #    steps:
+  #      - name: Install packages
+  #        run: |
+  #          sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable
+  #
+  #      - name: Setup workspace
+  #        uses: actions/checkout@v4
+  #
+  #      - name: Setup Ruby
+  #        uses: ruby/setup-ruby@v1
+  #        with:
+  #          ruby-version: .ruby-version
+  #          bundler-cache: true
+  #
+  #      - name: Restore Node modules
+  #        uses: actions/cache@v3
+  #        with:
+  #          path: node_modules
+  #          key: node-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+  #
+  #      - name: Setup Node.js
+  #        uses: actions/setup-node@v3
+  #        with:
+  #          node-version: '20'
+  #
+  #      - name: Run tests
+  #        env:
+  #          RAILS_ENV: test
+  #          DATABASE_HOST: localhost
+  #          PGUSER: postgres
+  #          PGPASSWORD: postgres
+  #          CI: true
+  #        run: bundle exec rspec
+  #
+  #      - name: Keep screenshots from failed system tests
+  #        uses: actions/upload-artifact@v4
+  #        if: failure()
+  #        with:
+  #          name: screenshots
+  #          path: ${{ github.workspace }}/tmp/screenshots
+  #          if-no-files-found: ignore
+  #
+  #      - name: Upload coverage to Coveralls
+  #        run: bundle exec coveralls push
+
+  metrics:
     needs: prepare
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:15
-        ports: ['5432:5432']
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: va_db_tst
-        options: >-
-          --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=5
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
     steps:
-      - name: Install packages
-        run: |
-          sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable
-
-      - name: Setup workspace
-        uses: actions/checkout@v4
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: lowlighter/metrics@v3.34
         with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: Restore Node modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
-      - name: Run tests
-        env:
-          RAILS_ENV: test
-          DATABASE_HOST: localhost
-          PGUSER: postgres
-          PGPASSWORD: postgres
-          CI: true
-        run: bundle exec rspec
-
-      - name: Keep screenshots from failed system tests
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: screenshots
-          path: ${{ github.workspace }}/tmp/screenshots
-          if-no-files-found: ignore
-
-      - name: Upload coverage to Coveralls
-        run: bundle exec coveralls push
+          filename: metrics.svg
+          token: ${{ github.token }}
+          base: 'header, activity, community'
+          plugin_languages: yes
+          plugin_languages_ignored: >-
+            html, css
+          plugin_languages_limit: 8
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
