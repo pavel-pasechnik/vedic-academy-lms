@@ -12,7 +12,7 @@ while true; do
 done
 
 echo "Running HAML Lint with auto-correct..."
-bundle exec haml-lint --auto-correct .
+bundle exec haml-lint --auto-correct . --fail-level error
 
 echo "Running ERB Lint with auto-correct..."
 bundle exec erb_lint --lint-all --autocorrect
