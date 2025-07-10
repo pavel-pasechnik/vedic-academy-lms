@@ -10,6 +10,8 @@ jobs:
   github-metrics:
     if: github.actor != 'coveralls' && github.event.head_commit.message != 'coverage data'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: lowlighter/metrics@v3.34
         with:
