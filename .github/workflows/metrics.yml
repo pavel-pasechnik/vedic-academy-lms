@@ -15,7 +15,7 @@ jobs:
           filename: metrics.svg
           token: ${{ github.token }}
           committer_token: ${{ github.token }}
-          output_action: pull-request
+          output_action: commit
           base: 'header, activity, community'
           plugin_languages: yes
           plugin_languages_ignored: >-
