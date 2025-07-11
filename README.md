@@ -16,7 +16,7 @@ architecture of Ruby on Rails, React, and Vite.
 [![Last Commit](https://img.shields.io/github/last-commit/pavel-pasechnik/vedic-academy-lms?style=flat-square)](https://github.com/pavel-pasechnik/vedic-academy-lms/commits)
 [![Snyk](https://img.shields.io/snyk/vulnerabilities/github/pavel-pasechnik/vedic-academy-lms?style=flat-square)](https://snyk.io/test/github/pavel-pasechnik/vedic-academy-lms)
 
-![Metrics](https://github.com/pavel-pasechnik/vedic-academy-lms/blob/main/metrics.svg)
+![Metrics](https://raw.githubusercontent.com/pavel-pasechnik/vedic-academy-lms/metrics/metrics.svg)
 
 ---
 
