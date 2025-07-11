@@ -17,14 +17,14 @@ jobs:
           committer_token: ${{ github.token }}
           output_action: commit
           committer_branch: metrics
-          base: 'header, activity, community'
+          base: ''
           plugin_languages: yes
           plugin_languages_ignored: >-
             html, css
           plugin_languages_skipped: >-
             coverage/**, public/vite*, node_modules/**, .history/**, log/**,
             app/assets/javascripts/generated/**, swagger/**
-          plugin_languages_limit: 8
+          plugin_languages_limit: 10
           plugin_contributors: yes
           plugin_contributors_contributions: yes
           plugin_contributors_sections: reviewers, contributors
