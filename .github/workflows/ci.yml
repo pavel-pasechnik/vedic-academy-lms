@@ -3,7 +3,6 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
 
 jobs:
   prepare:
@@ -228,22 +227,3 @@ jobs:
   #
   #      - name: Upload coverage to Coveralls
   #        run: bundle exec coveralls push
-
-  metrics:
-    needs: prepare
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    permissions:
-      contents: write
-    steps:
-      - uses: lowlighter/metrics@v3.34
-        with:
-          filename: metrics.svg
-          token: ${{ github.token }}
-          base: 'header, activity, community'
-          plugin_languages: yes
-          plugin_languages_ignored: >-
-            html, css
-          plugin_languages_limit: 8
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
