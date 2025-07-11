@@ -23,7 +23,7 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -51,7 +51,7 @@ jobs:
           bundler-cache: true
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -116,7 +116,7 @@ jobs:
           key: node-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -146,7 +146,7 @@ jobs:
           key: node-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -205,7 +205,7 @@ jobs:
   #          key: node-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
   #
   #      - name: Setup Node.js
-  #        uses: actions/setup-node@v3
+  #        uses: actions/setup-node@v4
   #        with:
   #          node-version: '20'
   #
