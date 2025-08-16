@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 8.0.2'
+gem 'rails', '~> 8.0.2', '>= 8.0.2.1'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'propshaft'
 
@@ -23,9 +23,9 @@ gem 'jbuilder'
 gem 'tzinfo-data', platforms: %i[ windows jruby ]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
-gem 'solid_cable'
+gem 'solid_cable', '>= 3.0.9'
 gem 'solid_cache'
-gem 'solid_queue'
+gem 'solid_queue', '>= 1.2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -106,7 +106,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 
-  gem 'database_cleaner-active_record'
+  gem 'database_cleaner-active_record', '>= 2.2.2'
   gem 'factory_bot_rails'
   gem 'ffaker'
 
