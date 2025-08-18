@@ -64,7 +64,7 @@
     "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^2.8.2",
     "@sentry/react": "^9.32.0",
-    "axios": "^1.10.0",
+    "axios": "^1.11.0",
     "bootstrap": "^5.3.7",
     "modern-normalize": "^3.0.1",
     "normalize.css": "^8.0.1",
