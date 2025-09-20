@@ -80,7 +80,7 @@ group :development, :test do
 
   gem 'bundler-audit'
   gem 'reek'
-  gem 'rubycritic', require: false
+  gem 'rubycritic', '>= 4.10.0', require: false
 end
 
 group :development do
@@ -104,7 +104,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '>= 4.34.0'
 
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
