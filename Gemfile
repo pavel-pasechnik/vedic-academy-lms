@@ -1,20 +1,20 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 8.0.2'
+gem 'rails', '~> 8.0.2', '>= 8.0.2.1'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem 'propshaft'
+gem 'propshaft', '>= 1.2.0'
 
 gem 'pg'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
+gem 'turbo-rails', '>= 2.0.14'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder'
+gem 'jbuilder', '>= 2.14.0'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -23,15 +23,15 @@ gem 'jbuilder'
 gem 'tzinfo-data', platforms: %i[ windows jruby ]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
-gem 'solid_cable'
-gem 'solid_cache'
-gem 'solid_queue'
+gem 'solid_cable', '>= 3.0.9'
+gem 'solid_cache', '>= 1.0.8'
+gem 'solid_queue', '>= 1.2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
-gem 'kamal', require: false
+gem 'kamal', '>= 2.7.0', require: false
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem 'thruster', require: false
@@ -44,17 +44,17 @@ gem 'vite_rails'
 gem 'devise'
 gem 'devise-jwt'          # for JWT tokens
 gem 'global_phone'          # add phone validation/normalization if desired
-gem 'omniauth'            # Omniauth core
+gem 'omniauth'            , '>= 2.1.4' # Omniauth core
 gem 'omniauth-facebook'      # Facebook OAuth2 example
 gem 'omniauth-google-oauth2'  # Google OAuth2 example
-gem 'pundit'                # if you plan to use access policies
+gem 'pundit'                , '>= 2.5.1' # if you plan to use access policies
 gem 'recaptcha', require: 'recaptcha/rails'  # if you want captcha on the form
 
 gem 'carrierwave'
 
 gem 'paper_trail'
 
-gem 'sidekiq'
+gem 'sidekiq', '>= 8.0.5'
 gem 'sidekiq-scheduler'
 
 # Debager
@@ -76,7 +76,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase'
 
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 8.0.1'
 
   gem 'bundler-audit'
   gem 'reek'
@@ -88,11 +88,11 @@ group :development do
   gem 'erb_lint', require: false
   gem 'rubocop', require: false
   gem 'rubocop-capybara'
-  gem 'rubocop-erb', require: false
+  gem 'rubocop-erb', '>= 0.7.0', require: false
   gem 'rubocop-haml', require: false
   gem 'rubocop-packaging'
   gem 'rubocop-performance'
-  gem 'rubocop-rails', require: false
+  gem 'rubocop-rails', '>= 2.33.0', require: false
   gem 'rubocop-rspec_rails'
   gem 'rubocop-shopify'
   gem 'rubocop-thread_safety'
@@ -106,8 +106,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 
-  gem 'database_cleaner-active_record'
-  gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record', '>= 2.2.2'
+  gem 'factory_bot_rails', '>= 6.5.0'
   gem 'ffaker'
 
   gem 'coveralls', require: false
