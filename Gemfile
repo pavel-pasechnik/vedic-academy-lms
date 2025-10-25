@@ -52,7 +52,7 @@ gem 'recaptcha', require: 'recaptcha/rails'  # if you want captcha on the form
 
 gem 'carrierwave'
 
-gem 'paper_trail'
+gem 'paper_trail', '>= 17.0.0'
 
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
@@ -61,7 +61,7 @@ gem 'sidekiq-scheduler'
 gem 'sentry-ruby'
 gem 'stackprof'
 
-gem 'simple_form'
+gem 'simple_form', '>= 5.4.0'
 
 # Technical documentation of the project
 gem 'rswag'
