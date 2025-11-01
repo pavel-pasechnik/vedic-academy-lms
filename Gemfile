@@ -115,7 +115,7 @@ group :test do
 
   gem 'fuubar'
   gem 'rspec-given'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '>= 7.0.1'
 
   gem 'kaminari'
 end
