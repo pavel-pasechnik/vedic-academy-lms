@@ -64,7 +64,7 @@ gem 'stackprof'
 gem 'simple_form'
 
 # Technical documentation of the project
-gem 'rswag'
+gem 'rswag', '>= 2.17.0'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
