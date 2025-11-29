@@ -78,7 +78,7 @@ group :development, :test do
 
   gem 'rspec-rails'
 
-  gem 'bundler-audit'
+  gem 'bundler-audit', '>= 0.9.3'
   gem 'reek'
   gem 'rubycritic', require: false
 end
