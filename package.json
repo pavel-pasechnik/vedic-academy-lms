@@ -69,7 +69,7 @@
     "modern-normalize": "^3.0.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
-    "qs": "^6.14.0",
+    "qs": "^6.14.1",
     "rc-slider": "^11.1.8",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
