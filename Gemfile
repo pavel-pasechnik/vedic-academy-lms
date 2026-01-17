@@ -42,7 +42,7 @@ gem 'thruster', require: false
 gem 'vite_rails'
 
 gem 'devise'
-gem 'devise-jwt'          # for JWT tokens
+gem 'devise-jwt'          , '>= 0.13.0' # for JWT tokens
 gem 'global_phone'          # add phone validation/normalization if desired
 gem 'omniauth'            # Omniauth core
 gem 'omniauth-facebook'      # Facebook OAuth2 example
