@@ -41,7 +41,7 @@ gem 'thruster', require: false
 
 gem 'vite_rails'
 
-gem 'devise'
+gem 'devise', '>= 5.0.0'
 gem 'devise-jwt'          # for JWT tokens
 gem 'global_phone'          # add phone validation/normalization if desired
 gem 'omniauth'            # Omniauth core
